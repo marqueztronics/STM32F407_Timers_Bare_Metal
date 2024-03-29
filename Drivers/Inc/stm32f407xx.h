@@ -82,6 +82,7 @@
 #define GPIOH_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1C00)
 #define GPIOI_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x2000)
 #define RCC_BASEADDR                     (AHB1PERIPH_BASEADDR + 0x3800)
+
 /*
  * Base addresses of peripherals which are hanging on APB1 bus
  * TODO : Complete for all other peripherals
@@ -97,6 +98,11 @@
 #define USART3_BASEADDR						(APB1PERIPH_BASEADDR + 0x4800)
 #define UART4_BASEADDR						(APB1PERIPH_BASEADDR + 0x4C00)
 #define UART5_BASEADDR						(APB1PERIPH_BASEADDR + 0x5000)
+
+#define TIM2_BASEADDR						(APB1PERIPH_BASEADDR + 0x0000)
+#define TIM3_BASEADDR						(APB1PERIPH_BASEADDR + 0x0400)
+#define TIM4_BASEADDR						(APB1PERIPH_BASEADDR + 0x0800)
+#define TIM5_BASEADDR						(APB1PERIPH_BASEADDR + 0x0C00)
 
 /*
  * Base addresses of peripherals which are hanging on APB2 bus
@@ -272,6 +278,11 @@ typedef struct
 #define UART5  				((USART_RegDef_t*)UART5_BASEADDR)
 #define USART6  			((USART_RegDef_t*)USART6_BASEADDR)
 
+#define TIM2				((GP_TIM_RegDef_t*)TIM2_BASEADDR)
+#define TIM3				((GP_TIM_RegDef_t*)TIM3_BASEADDR)
+#define TIM4				((GP_TIM_RegDef_t*)TIM4_BASEADDR)
+#define TIM5				((GP_TIM_RegDef_t*)TIM5_BASEADDR)
+
 /*
  * Clock Enable Macros for GPIOx peripherals
  */
@@ -290,54 +301,65 @@ typedef struct
 /*
  * Clock Enable Macros for I2Cx peripherals
  */
-#define I2C1_PCLK_EN() (RCC->APB1ENR |= (1 << 21))
-#define I2C2_PCLK_EN() (RCC->APB1ENR |= (1 << 22))
-#define I2C3_PCLK_EN() (RCC->APB1ENR |= (1 << 23))
+#define I2C1_PCLK_EN() 		(RCC->APB1ENR |= (1 << 21))
+#define I2C2_PCLK_EN() 		(RCC->APB1ENR |= (1 << 22))
+#define I2C3_PCLK_EN() 		(RCC->APB1ENR |= (1 << 23))
 
 
 /*
  * Clock Enable Macros for SPIx peripheralsbu
  */
-#define SPI1_PCLK_EN() (RCC->APB2ENR |= (1 << 12))
-#define SPI2_PCLK_EN() (RCC->APB1ENR |= (1 << 14))
-#define SPI3_PCLK_EN() (RCC->APB1ENR |= (1 << 15))
-#define SPI4_PCLK_EN() (RCC->APB2ENR |= (1 << 13))
+#define SPI1_PCLK_EN() 		(RCC->APB2ENR |= (1 << 12))
+#define SPI2_PCLK_EN() 		(RCC->APB1ENR |= (1 << 14))
+#define SPI3_PCLK_EN() 		(RCC->APB1ENR |= (1 << 15))
+#define SPI4_PCLK_EN() 		(RCC->APB2ENR |= (1 << 13))
 
 
 /*
  * Clock Enable Macros for USARTx peripherals
  */
-#define USART1_PCCK_EN() (RCC->APB2ENR |= (1 << 4))
-#define USART2_PCCK_EN() (RCC->APB1ENR |= (1 << 17))
-#define USART3_PCCK_EN() (RCC->APB1ENR |= (1 << 18))
-#define UART4_PCCK_EN()  (RCC->APB1ENR |= (1 << 19))
-#define UART5_PCCK_EN()  (RCC->APB1ENR |= (1 << 20))
-#define USART6_PCCK_EN() (RCC->APB1ENR |= (1 << 5))
+#define USART1_PCCK_EN()	(RCC->APB2ENR |= (1 << 4))
+#define USART2_PCCK_EN()	(RCC->APB1ENR |= (1 << 17))
+#define USART3_PCCK_EN()	(RCC->APB1ENR |= (1 << 18))
+#define UART4_PCCK_EN()		(RCC->APB1ENR |= (1 << 19))
+#define UART5_PCCK_EN()		(RCC->APB1ENR |= (1 << 20))
+#define USART6_PCCK_EN()	(RCC->APB1ENR |= (1 << 5))
 
 /*
  * Clock Enable Macros for SYSCFG peripheral
  */
-#define SYSCFG_PCLK_EN() (RCC->APB2ENR |= (1 << 14))
+#define SYSCFG_PCLK_EN()	(RCC->APB2ENR |= (1 << 14))
+
+
+/*
+ * Clock Enable Macros for TIMx peripherals
+ */
+#define TIM2_PCLK_EN()		(RCC->APB1ENR |= (1 << 0))
+#define TIM3_PCLK_EN()		(RCC->APB1ENR |= (1 << 1))
+#define TIM4_PCLK_EN()		(RCC->APB1ENR |= (1 << 2))
+#define TIM5_PCLK_EN()		(RCC->APB1ENR |= (1 << 3))
 
 
 /*
  * Clock Disable Macros for GPIOx peripherals
  */
-#define GPIOA_PCLK_DI()
+#define GPIOA_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 0))
+#define GPIOB_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 1))
+#define GPIOC_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 2))
+#define GPIOD_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 3))
+#define GPIOE_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 4))
+#define GPIOF_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 5))
+#define GPIOG_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 6))
+#define GPIOH_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 7))
+#define GPIOI_PCLK_DI()		(RCC->AHB1ENR &= ~(1 << 8))
 
 /*
- * Clock Disable Macros for SPIx peripherals
+ * Clock Disable Macros for TIMx peripherals
  */
-
-/*
- * Clock Disable Macros for USARTx peripherals
- */
-
-
-/*
- * Clock Disable Macros for SYSCFG peripheral
- */
-
+#define TIM2_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 0))
+#define TIM3_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 1))
+#define TIM4_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 2))
+#define TIM5_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 3))
 
 /*
  *  Macros to reset GPIOx peripherals

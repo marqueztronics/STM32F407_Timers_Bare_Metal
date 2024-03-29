@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002a  00000000  00000000  0000128c  2**0
                   CONTENTS, READONLY
- 13 .debug_info   000000b7  00000000  00000000  000012b6  2**0
+ 13 .debug_info   000000be  00000000  00000000  000012b6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 0000006b  00000000  00000000  0000136d  2**0
+ 14 .debug_abbrev 0000006b  00000000  00000000  00001374  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000048  00000000  00000000  000013d8  2**3
+ 15 .debug_aranges 00000048  00000000  00000000  000013e0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 0000002c  00000000  00000000  00001420  2**0
+ 16 .debug_rnglists 0000002c  00000000  00000000  00001428  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00000063  00000000  00000000  0000144c  2**0
+ 17 .debug_macro  0000009a  00000000  00000000  00001454  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000488  00000000  00000000  000014af  2**0
+ 18 .debug_line   00000536  00000000  00000000  000014ee  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00003bee  00000000  00000000  00001937  2**0
+ 19 .debug_str    000059c1  00000000  00000000  00001a24  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00005525  2**0
+ 20 .comment      00000043  00000000  00000000  000073e5  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000054  00000000  00000000  00005568  2**2
+ 21 .debug_frame  00000054  00000000  00000000  00007428  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000082  00000000  00000000  000055bc  2**0
+ 22 .debug_line_str 00000082  00000000  00000000  0000747c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -81,9 +81,9 @@ Disassembly of section .text:
  80001c4:	0800026c 	.word	0x0800026c
 
 080001c8 <main>:
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
+
+#include <stdint.h>
+#include "stm32f407xx.h"
 
 int main(void)
 {
