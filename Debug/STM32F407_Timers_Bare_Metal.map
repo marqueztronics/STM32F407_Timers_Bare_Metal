@@ -103,10 +103,10 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000       0x6a ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000      0x1df ./Drivers/Src/stm32f4xx_gpio.o
- .debug_macro   0x00000000      0x41d ./Drivers/Src/stm32f4xx_gpio.o
+ .debug_macro   0x00000000      0x432 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000       0xc4 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_line    0x00000000      0xa13 ./Drivers/Src/stm32f4xx_gpio.o
- .debug_str     0x00000000     0x5f12 ./Drivers/Src/stm32f4xx_gpio.o
+ .debug_str     0x00000000     0x5f41 ./Drivers/Src/stm32f4xx_gpio.o
  .comment       0x00000000       0x44 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_frame   0x00000000      0x1c8 ./Drivers/Src/stm32f4xx_gpio.o
  .ARM.attributes
@@ -132,7 +132,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Src/main.o
  .debug_macro   0x00000000      0x1df ./Src/main.o
  .debug_macro   0x00000000      0x189 ./Src/main.o
- .debug_macro   0x00000000      0x41d ./Src/main.o
+ .debug_macro   0x00000000      0x432 ./Src/main.o
  .debug_macro   0x00000000       0xc4 ./Src/main.o
  .group         0x00000000        0xc ./Src/syscalls.o
  .group         0x00000000        0xc ./Src/syscalls.o
@@ -892,10 +892,10 @@ LOAD C:/ST/STM32CubeIDE_1.10.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00000000      0x4bb ./Src/main.o
  .debug_line    0x000004bb       0x7b ./Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x00000000     0x59c1
- .debug_str     0x00000000     0x5982 ./Src/main.o
-                               0x5b4c (size before relaxing)
- .debug_str     0x00005982       0x3f ./Startup/startup_stm32f407vgtx.o
+.debug_str      0x00000000     0x59f0
+ .debug_str     0x00000000     0x59b1 ./Src/main.o
+                               0x5b7b (size before relaxing)
+ .debug_str     0x000059b1       0x3f ./Startup/startup_stm32f407vgtx.o
                                  0x9e (size before relaxing)
 
 .comment        0x00000000       0x43
