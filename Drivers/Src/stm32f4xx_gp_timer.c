@@ -97,11 +97,29 @@ void GP_TIM_Init(GP_TIM_Handle_t* pGP_TIM_Handle)
 	pGP_TIM_Handle->pTIMx->PSC = pGP_TIM_Handle->TIMConfig.Prescaler;
 
 	// Set Period (ARR)
-	pGP_TIM_Handle->pTIMx->ARR = pGP_TIM_Handle->TIMConfig.Period;
+	pGP_TIM_Handle->pTIMx->ARR = pGP_TIM_Handle->TIMConfig.Autorealod;
 
 	// Select timer mode
 	if (pGP_TIM_Handle->TIMConfig.TimerMode == GP_TIM_MODE_PWM)
 	{
 		// PWM mode
 	}
+}
+
+
+/*********************************************************************
+ * @fn      		  - GP_TIM_Start
+ *
+ * @brief             - This function starts the timer
+ *
+ * @param[in]         - Handle structure for TIMx
+ *
+ * @return            - none
+ *
+ * @Note              - none
+ */
+void GP_TIM_Start(GP_TIM_Handle_t* pGP_TIM_Handle)
+{
+	// Set CR1 CEN bit
+	pGP_TIM_Handle->pTIMx->CR1 |= (1 << GP_TIM_CR1_CEN);
 }

@@ -19,8 +19,28 @@
 #include <stdint.h>
 #include "stm32f407xx.h"
 
+#define TIM4_PSC 16000				// 1 KHz CK_CNT
+#define TIM4_ARR 1000				// 1 sec period
+
+GP_TIM_Handle_t TimHandle;
+
+void App_Timer_Init()
+{
+	TimHandle.pTIMx = TIM4;
+	TimHandle.TIMConfig.TimerMode = GP_TIM_MODE_COUNTER;
+	TimHandle.TIMConfig.ClockSource = GP_TIM_CK_INT;		// Internal clock 16 Mhz
+	TimHandle.TIMConfig.CounterMode = GP_TIM_CNT_MODE_UP;
+	TimHandle.TIMConfig.Prescaler = TIM4_PSC - 1;
+	TimHandle.TIMConfig.Autorealod = TIM4_ARR - 1;
+
+	GP_TIM_Init(&TimHandle);
+}
+
 int main(void)
 {
+	App_Timer_Init();
+	GP_TIM_Start(&TimHandle);
+
     /* Loop forever */
 	for(;;);
 }

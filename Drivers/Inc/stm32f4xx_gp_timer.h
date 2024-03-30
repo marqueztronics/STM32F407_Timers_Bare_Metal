@@ -14,7 +14,7 @@ typedef struct
 {
 	uint8_t ClockSource;				// Values from @GP_TIM_CLK_SOURCE
 	uint16_t Prescaler;					// The counter clock frequency CK_CNT is equal to fCK_PSC / (PSC[15:0] + 1)
-	uint32_t Period;					// Auto-reload register. 32-bit value on TIM2 and TIM5. 16-bit value on TIM3 and TIM4
+	uint32_t Autorealod;					// Auto-reload register. 32-bit value on TIM2 and TIM5. 16-bit value on TIM3 and TIM4
 	uint8_t TimerMode;					// Values from @GP_TIM_MODE
 	uint8_t CounterMode;				// Values from @GP_TIM_CNT_MODE
 }GP_TIM_Config_t;

@@ -1,2 +1,3 @@
 ../Drivers/Src/stm32f4xx_gp_timer.c:23:6:GP_TIM_PeriClockControl	10
 ../Drivers/Src/stm32f4xx_gp_timer.c:79:6:GP_TIM_Init	2
+../Drivers/Src/stm32f4xx_gp_timer.c:121:6:GP_TIM_Start	1
