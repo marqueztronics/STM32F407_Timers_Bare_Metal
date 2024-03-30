@@ -1,3 +1,4 @@
+"./Drivers/Src/stm32f4xx_gp_timer.o"
 "./Drivers/Src/stm32f4xx_gpio.o"
 "./Src/main.o"
 "./Src/syscalls.o"
