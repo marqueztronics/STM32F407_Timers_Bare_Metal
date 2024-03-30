@@ -54,18 +54,45 @@ Discarded input sections
  .ARM.attributes
                 0x00000000       0x1c C:/ST/STM32CubeIDE_1.10.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
  .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gp_timer.o
  .text          0x00000000        0x0 ./Drivers/Src/stm32f4xx_gp_timer.o
  .data          0x00000000        0x0 ./Drivers/Src/stm32f4xx_gp_timer.o
  .bss           0x00000000        0x0 ./Drivers/Src/stm32f4xx_gp_timer.o
- .debug_info    0x00000000       0x22 ./Drivers/Src/stm32f4xx_gp_timer.o
- .debug_abbrev  0x00000000       0x12 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .text.GP_TIM_PeriClockControl
+                0x00000000       0xdc ./Drivers/Src/stm32f4xx_gp_timer.o
+ .text.GP_TIM_Init
+                0x00000000       0x48 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_info    0x00000000      0x49e ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_abbrev  0x00000000       0xd7 ./Drivers/Src/stm32f4xx_gp_timer.o
  .debug_aranges
-                0x00000000       0x18 ./Drivers/Src/stm32f4xx_gp_timer.o
- .debug_macro   0x00000000       0x11 ./Drivers/Src/stm32f4xx_gp_timer.o
+                0x00000000       0x28 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_rnglists
+                0x00000000       0x1a ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0xa3 ./Drivers/Src/stm32f4xx_gp_timer.o
  .debug_macro   0x00000000      0xab4 ./Drivers/Src/stm32f4xx_gp_timer.o
- .debug_line    0x00000000       0x44 ./Drivers/Src/stm32f4xx_gp_timer.o
- .debug_str     0x00000000     0x2e03 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000      0x189 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0x22 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0x8e ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0x51 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000      0x103 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0x6a ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000      0x1df ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000      0x432 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0xc4 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_macro   0x00000000       0xb8 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_line    0x00000000      0x569 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_str     0x00000000     0x5ff0 ./Drivers/Src/stm32f4xx_gp_timer.o
  .comment       0x00000000       0x44 ./Drivers/Src/stm32f4xx_gp_timer.o
+ .debug_frame   0x00000000       0x5c ./Drivers/Src/stm32f4xx_gp_timer.o
  .ARM.attributes
                 0x00000000       0x2e ./Drivers/Src/stm32f4xx_gp_timer.o
  .group         0x00000000        0xc ./Drivers/Src/stm32f4xx_gpio.o
@@ -120,10 +147,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000      0x1df ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000      0x432 ./Drivers/Src/stm32f4xx_gpio.o
- .debug_macro   0x00000000       0x3a ./Drivers/Src/stm32f4xx_gpio.o
+ .debug_macro   0x00000000       0xb8 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_macro   0x00000000       0xc4 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_line    0x00000000      0xa13 ./Drivers/Src/stm32f4xx_gpio.o
- .debug_str     0x00000000     0x5ff5 ./Drivers/Src/stm32f4xx_gpio.o
+ .debug_str     0x00000000     0x6168 ./Drivers/Src/stm32f4xx_gpio.o
  .comment       0x00000000       0x44 ./Drivers/Src/stm32f4xx_gpio.o
  .debug_frame   0x00000000      0x1c8 ./Drivers/Src/stm32f4xx_gpio.o
  .ARM.attributes
@@ -904,18 +931,18 @@ LOAD C:/ST/STM32CubeIDE_1.10.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000013       0x19 ./Startup/startup_stm32f407vgtx.o
 
-.debug_macro    0x00000000       0xd9
+.debug_macro    0x00000000      0x157
  .debug_macro   0x00000000       0x99 ./Src/main.o
- .debug_macro   0x00000099       0x40 ./Src/main.o
+ .debug_macro   0x00000099       0xbe ./Src/main.o
 
 .debug_line     0x00000000      0x536
  .debug_line    0x00000000      0x4bb ./Src/main.o
  .debug_line    0x000004bb       0x7b ./Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x00000000     0x5aa4
- .debug_str     0x00000000     0x5a65 ./Src/main.o
-                               0x5c2f (size before relaxing)
- .debug_str     0x00005a65       0x3f ./Startup/startup_stm32f407vgtx.o
+.debug_str      0x00000000     0x5c17
+ .debug_str     0x00000000     0x5bd8 ./Src/main.o
+                               0x5da2 (size before relaxing)
+ .debug_str     0x00005bd8       0x3f ./Startup/startup_stm32f407vgtx.o
                                  0x9e (size before relaxing)
 
 .comment        0x00000000       0x43
