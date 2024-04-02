@@ -14,9 +14,12 @@ typedef struct
 {
 	uint8_t ClockSource;				// Values from @GP_TIM_CLK_SOURCE
 	uint16_t Prescaler;					// The counter clock frequency CK_CNT is equal to fCK_PSC / (PSC[15:0] + 1)
-	uint32_t Autorealod;					// Auto-reload register. 32-bit value on TIM2 and TIM5. 16-bit value on TIM3 and TIM4
+	uint32_t Autorealod;				// Auto-reload register. 32-bit value on TIM2 and TIM5. 16-bit value on TIM3 and TIM4
 	uint8_t TimerMode;					// Values from @GP_TIM_MODE
 	uint8_t CounterMode;				// Values from @GP_TIM_CNT_MODE
+	uint8_t Channel;					// Values from @GP_TIM_CHANNEL
+	uint8_t PWMMode;					// Values from @GP_TIM_PWM_MODE
+	uint32_t Pulse;						// Output Compare value. 32-bit value on TIM2 and TIM5. 16-bit value on TIM3 and TIM4
 }GP_TIM_Config_t;
 
 /*
@@ -59,6 +62,22 @@ typedef struct
 #define GP_TIM_CNT_MODE_CENTER_ALIGNED		2	// Center-aligned mode (up/down counting)
 
 
+/*
+ * Clock Channel selection
+ * @GP_TIM_CHANNEL
+ */
+#define GP_TIM_CHAN_1						0	// TIMx CH1
+#define GP_TIM_CHAN_2						1	// TIMx CH2
+#define GP_TIM_CHAN_3						2	// TIMx CH3
+#define GP_TIM_CHAN_4						3	// TIMx CH4
+
+
+/*
+ * PWM Mode Selection
+ * @GP_TIM_PWM_MODE
+ */
+#define GP_TIM_PWM_MODE_1					0	// PWM Mode 1
+#define GP_TIM_PWM_MODE_2					1	// PWM Mode 1
 
 /******************************************************************************************
  *								Registers' Bit-Fields
@@ -100,6 +119,51 @@ typedef struct
 #define GP_TIM_EGR_UG						0	// Update generation
 
 
+/*
+ * TIMx_CCMR1 Bit-fields
+ */
+#define  GP_TIM_CCMR1_OC2CE					15	// Output compare 2 clear enable
+#define  GP_TIM_CCMR1_OC2M					12	// Output compare 2 mode
+#define  GP_TIM_CCMR1_OC2PE					11	// Output compare 2 preload enable
+#define  GP_TIM_CCMR1_OC2FE					10	// Output compare 2 fast enable
+#define  GP_TIM_CCMR1_CC2S					8	// Capture/Compare 2 selection
+#define  GP_TIM_CCMR1_OC1CE					7	// Output compare 1 clear enable
+#define  GP_TIM_CCMR1_OC1M					4	// Output compare 1 mode
+#define  GP_TIM_CCMR1_OC1PE					3	// Output compare 1 preload enable
+#define  GP_TIM_CCMR1_OC1FE					2	// Output compare 1 fast enable
+#define  GP_TIM_CCMR1_CC1S					0	// Capture/Compare 1 selection
+
+
+/*
+ * TIMx_CCMR2 Bit-fields
+ */
+#define  GP_TIM_CCMR2_OC4CE					15	// Output compare 2 clear enable
+#define  GP_TIM_CCMR2_OC4M					12	// Output compare 2 mode
+#define  GP_TIM_CCMR2_OC4PE					11	// Output compare 2 preload enable
+#define  GP_TIM_CCMR2_OC4FE					10	// Output compare 2 fast enable
+#define  GP_TIM_CCMR2_CC4S					8	// Capture/Compare 2 selection
+#define  GP_TIM_CCMR2_OC3CE					7	// Output compare 1 clear enable
+#define  GP_TIM_CCMR2_OC3M					4	// Output compare 1 mode
+#define  GP_TIM_CCMR2_OC3PE					3	// Output compare 1 preload enable
+#define  GP_TIM_CCMR2_OC3FE					2	// Output compare 1 fast enable
+#define  GP_TIM_CCMR2_CC3S					0	// Capture/Compare 1 selection
+
+
+/*
+ * TIMx_CCER Bit-fields
+ */
+#define GP_TIM_CCER_CC4NP					15	// Capture/Compare 4 output Polarity
+#define GP_TIM_CCER_CC4P					13	// Capture/Compare 4 output Polarity
+#define GP_TIM_CCER_CC4E					12	// Capture/Compare 4 output enable
+#define GP_TIM_CCER_CC3NP					11	// Capture/Compare 3 output Polarity
+#define GP_TIM_CCER_CC3P					9	// Capture/Compare 3 output Polarity
+#define GP_TIM_CCER_CC3E					8	// Capture/Compare 3 output enable
+#define GP_TIM_CCER_CC2NP					7	// Capture/Compare 2 output Polarity
+#define GP_TIM_CCER_CC2P					5	// Capture/Compare 2 output Polarity
+#define GP_TIM_CCER_CC2E					4	// Capture/Compare 2 output enable
+#define GP_TIM_CCER_CC1NP					3	// Capture/Compare 1 output Polarity
+#define GP_TIM_CCER_CC1P					1	// Capture/Compare 1 output Polarity
+#define GP_TIM_CCER_CC1E					0	// Capture/Compare 1 output enable
 
 /******************************************************************************************
  *								APIs supported by this driver

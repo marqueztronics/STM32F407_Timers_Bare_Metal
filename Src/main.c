@@ -16,29 +16,56 @@
  ******************************************************************************
  */
 
+
+/*
+ * Hardware Connections:
+ * PD12 -> On board Green LED
+ */
+
 #include <stdint.h>
 #include "stm32f407xx.h"
 
-#define TIM4_PSC 16000				// 1 KHz CK_CNT
-#define TIM4_ARR 1000				// 1 sec period
+#define TIM4_PSC 1600				// 10 KHz CK_CNT
+#define TIM4_ARR 100				// 1 sec period
 
 GP_TIM_Handle_t TimHandle;
+GPIO_Handle_t GPIOHandle;
 
+// Initialize application Timer
 void App_Timer_Init()
 {
 	TimHandle.pTIMx = TIM4;
-	TimHandle.TIMConfig.TimerMode = GP_TIM_MODE_COUNTER;
+	TimHandle.TIMConfig.TimerMode = GP_TIM_MODE_PWM;
 	TimHandle.TIMConfig.ClockSource = GP_TIM_CK_INT;		// Internal clock 16 Mhz
 	TimHandle.TIMConfig.CounterMode = GP_TIM_CNT_MODE_UP;
 	TimHandle.TIMConfig.Prescaler = TIM4_PSC - 1;
 	TimHandle.TIMConfig.Autorealod = TIM4_ARR - 1;
+	TimHandle.TIMConfig.Channel = GP_TIM_CHAN_1;
+	TimHandle.TIMConfig.PWMMode = GP_TIM_PWM_MODE_1;
+	TimHandle.TIMConfig.Pulse = TIM4_ARR / 10;
 
 	GP_TIM_Init(&TimHandle);
 }
 
+// Initialize application GPIO
+void App_GPIO_Init()
+{
+	GPIOHandle.pGPIOx = GPIOD;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinAltFunMode = 2;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_MEDIUM;
+	GPIOHandle.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+
+	GPIO_Init(&GPIOHandle);
+}
+
 int main(void)
 {
+	App_GPIO_Init();
 	App_Timer_Init();
+
 	GP_TIM_Start(&TimHandle);
 
     /* Loop forever */
