@@ -63,11 +63,40 @@ void App_GPIO_Init()
 
 int main(void)
 {
+	uint8_t pulse = 0;			// To hold pulse value
+	uint8_t incrementing = 1;	// Whether duty cycle is increasing or decreasing
+
+	// Initialize peripherals
 	App_GPIO_Init();
 	App_Timer_Init();
 
+	// Start timer counter
 	GP_TIM_Start(&TimHandle);
 
     /* Loop forever */
-	for(;;);
+	for (;;)
+	{
+		if (incrementing)
+		{
+			pulse++;
+			if (pulse == 100)
+			{
+				// If reaches maximum value, switch to decrementing state
+				incrementing = 0;
+			}
+			GP_TIM_SetPWMPulseWidth(&TimHandle, pulse);
+		}
+
+		else	// Decrement pulse value
+		{
+			pulse--;
+			if (pulse == 0)
+			{
+				// If reaches minimum value, switch to incrementing state
+				incrementing = 1;
+			}
+			GP_TIM_SetPWMPulseWidth(&TimHandle, pulse);
+		}
+		for (uint32_t i = 0; i < 20000; i++);	// Software delay, arbitrary value
+	}
 }

@@ -2,3 +2,4 @@
 ../Drivers/Src/stm32f4xx_gp_timer.c:79:6:GP_TIM_Init	16	static
 ../Drivers/Src/stm32f4xx_gp_timer.c:226:6:GP_TIM_Start	16	static
 ../Drivers/Src/stm32f4xx_gp_timer.c:244:6:GP_TIM_Stop	16	static
+../Drivers/Src/stm32f4xx_gp_timer.c:263:6:GP_TIM_SetPWMPulseWidth	16	static

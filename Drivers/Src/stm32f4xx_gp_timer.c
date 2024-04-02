@@ -246,3 +246,41 @@ void GP_TIM_Stop(GP_TIM_Handle_t* pGP_TIM_Handle)
 	// Reset TIMx_CR1 CEN bit
 	pGP_TIM_Handle->pTIMx->CR1 &= ~(1 << GP_TIM_CR1_CEN);
 }
+
+
+/*********************************************************************
+ * @fn      		  - GP_TIM_SetPWMPulseWidth
+ *
+ * @brief             - This function sets the pulse value (CCR) in PWM mode
+ *
+ * @param[in]         - Handle structure for TIMx
+ * @param[in]         - Pulse value
+ *
+ * @return            - none
+ *
+ * @Note              - none
+ */
+void GP_TIM_SetPWMPulseWidth(GP_TIM_Handle_t* pGP_TIM_Handle, uint32_t pulse)
+{
+	// Select channel
+	switch (pGP_TIM_Handle->TIMConfig.Channel)
+	{
+	case GP_TIM_CHAN_1:
+		// Write Pulse value into CCR1 register Register
+		pGP_TIM_Handle->pTIMx->CCR1 = pulse;
+		break;
+	case GP_TIM_CHAN_2:
+		// Write Pulse value into CCR2 register Register
+		pGP_TIM_Handle->pTIMx->CCR2 = pulse;
+		break;
+	case GP_TIM_CHAN_3:
+		// Write Pulse value into CCR3 register Register
+		pGP_TIM_Handle->pTIMx->CCR3 = pulse;
+		break;
+	case GP_TIM_CHAN_4:
+		// Write Pulse value into CCR4 register Register
+		pGP_TIM_Handle->pTIMx->CCR4 = pulse;
+		break;
+	}
+
+}

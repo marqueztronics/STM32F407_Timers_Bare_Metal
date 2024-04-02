@@ -187,5 +187,10 @@ void GP_TIM_DeInit(GP_TIM_Handle_t* pGP_TIM_Handle);
 void GP_TIM_Start(GP_TIM_Handle_t* pGP_TIM_Handle);
 void GP_TIM_Stop(GP_TIM_Handle_t* pGP_TIM_Handle);
 
+/*
+ * Manipulate some timer settings
+ */
+void GP_TIM_SetPWMPulseWidth(GP_TIM_Handle_t* pGP_TIM_Handle, uint32_t pulse);
+
 
 #endif /* INC_STM32F4XX_GP_TIMER_H_ */
