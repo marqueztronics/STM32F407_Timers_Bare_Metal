@@ -60,8 +60,8 @@ all: main-build
 main-build: STM32F407_Timers_Bare_Metal.elf secondary-outputs
 
 # Tool invocations
-STM32F407_Timers_Bare_Metal.elf STM32F407_Timers_Bare_Metal.map: $(OBJS) $(USER_OBJS) C:\Users\leona\Documents\Learning\STM32\F4\Timers_Bare_Metal\STM32F407_Timers_Bare_Metal\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32F407_Timers_Bare_Metal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\leona\Documents\Learning\STM32\F4\Timers_Bare_Metal\STM32F407_Timers_Bare_Metal\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407_Timers_Bare_Metal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32F407_Timers_Bare_Metal.elf STM32F407_Timers_Bare_Metal.map: $(OBJS) $(USER_OBJS) C:\Users\leona\Documents\Learning\STM32\F4\F407\Timers_Bare_Metal\STM32F407_Timers_Bare_Metal\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32F407_Timers_Bare_Metal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\leona\Documents\Learning\STM32\F4\F407\Timers_Bare_Metal\STM32F407_Timers_Bare_Metal\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407_Timers_Bare_Metal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

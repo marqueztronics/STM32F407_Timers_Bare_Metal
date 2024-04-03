@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  00001ae3  00000000  00000000  000032c8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00001730  00000000  00000000  00004dab  2**0
+ 18 .debug_line   0000173f  00000000  00000000  00004dab  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00006453  00000000  00000000  000064db  2**0
+ 19 .debug_str    00006458  00000000  00000000  000064ea  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  0000c92e  2**0
+ 20 .comment      00000043  00000000  00000000  0000c942  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000334  00000000  00000000  0000c974  2**2
+ 21 .debug_frame  00000334  00000000  00000000  0000c988  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000082  00000000  00000000  0000cca8  2**0
+ 22 .debug_line_str 00000087  00000000  00000000  0000ccbc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1455,11 +1455,14 @@ int main(void)
 	uint8_t incrementing = 1;	// Whether duty cycle is increasing or decreasing
  8000a4a:	2301      	movs	r3, #1
  8000a4c:	71bb      	strb	r3, [r7, #6]
+
+	// Initialize peripherals
 	App_GPIO_Init();
  8000a4e:	f7ff ffd7 	bl	8000a00 <App_GPIO_Init>
 	App_Timer_Init();
  8000a52:	f7ff ffad 	bl	80009b0 <App_Timer_Init>
 
+	// Start timer counter
 	GP_TIM_Start(&TimHandle);
  8000a56:	4816      	ldr	r0, [pc, #88]	@ (8000ab0 <main+0x70>)
  8000a58:	f7ff fd4a 	bl	80004f0 <GP_TIM_Start>
